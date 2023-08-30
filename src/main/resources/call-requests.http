@@ -1,0 +1,42 @@
+
+### ping to project
+GET http://localhost:8083/person/ping
+
+### create person
+POST http://localhost:8083/person/create
+Content-Type: application/json
+
+{
+  "username": "taghi",
+  "email": "taghi@gmail.com",
+  "name": "t2"
+}
+
+### update person data
+PUT http://localhost:8083/person/update
+Content-Type: application/json
+
+{
+  "id": 13,
+  "username": "taghi",
+  "email": "taghi@gmail.com",
+  "name": "taghi jafari",
+  "version": 0
+}
+
+### find paging by name
+GET http://localhost:8083/person/find-paging?name=mohsen garmestani
+Content-Type: application/json
+
+### find paging by sort anf filter
+GET http://localhost:8083/person/page?page=3&size=10&sort=id,desc&sort=name,asc
+Content-Type: application/json
+
+### find paging by slice
+GET http://localhost:8083/person/slice?page=1&size=10&sort=id,desc&sort=name,asc
+
+### find all sorted
+GET http://localhost:8083/person/sorted?sort=id,desc&sort=name,asc
+
+### find paging by qualifier
+GET http://localhost:8083/person/qualifier?my_page=0&my_size=10&my_sort=id,desc&my_sort=name,asc

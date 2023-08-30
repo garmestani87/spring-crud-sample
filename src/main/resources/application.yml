@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: ASSIGNMENT
+  datasource:
+    url: jdbc:postgresql://localhost:5432/garmdb
+    username: garm
+    password: garm$$123
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: garm
+        show_sql: true
+    hibernate:
+      ddl-auto: update
+  data:
+    web:
+      pageable:
+        size-parameter: size
+        page-parameter: page
+        default-page-size: 10
+        one-indexed-parameters: false
+        max-page-size: 2000
+        qualifier-delimiter: _
+        prefix: my
+
+server:
+  port: 8083
+logging:
+  level:
+    org.springframework.security: INFO
